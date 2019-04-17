@@ -1,3 +1,5 @@
+import * as ProjectActions from '../actions/projectAction';
+
 const initState = {
 	projects: [
 		{ id: 1, title: 'help me find peach', content: 'blasdfas' },
@@ -6,7 +8,13 @@ const initState = {
 	]
 };
 
-const projectReducer = (state = initState, aciton) => {
+const projectReducer = (state = initState, action) => {
+	switch (action.type) {
+		case ProjectActions.CREATE_PROJECT: {
+			console.log('Created project', action.payload);
+			return { ...state, projects: [ ...state.projects, action.payload ] };
+		}
+	}
 	return state;
 };
 
