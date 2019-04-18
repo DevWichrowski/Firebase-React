@@ -10,6 +10,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-
-//2:54 
