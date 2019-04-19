@@ -22,7 +22,7 @@ const Navbar = () => {
 
 const mapStateToProps = (state) =>{
 	return ({
-
+		
 	})
 }
 

@@ -1,5 +1,4 @@
 import * as AuthActions from '../actions/authActions';
-import { LOGIN_ERROR } from '../actions/authActions';
 
 const initState = {
 	authError: null
@@ -21,6 +20,11 @@ const authReducer = (state = initState, action) => {
 				authError: null
 			};
         }
+        case AuthActions.SIGN_OUT_SUCCESS: {
+            console.log('SIGNED OUT SUCCESS');
+            return state;
+        }
+
         default:{
             return state;
         }
