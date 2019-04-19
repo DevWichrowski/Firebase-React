@@ -19,16 +19,18 @@ const store = createStore(
 		composeWithDevTools(
 			applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
 			reduxFirestore(fbConfig),
-			reactReduxFirebase(fbConfig)
+			reactReduxFirebase(fbConfig, { attachAuthIsReady: true }) // With that and no.2 app will not render untill checked if logged in
 		)
 	)
 );
 
-ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById('root')
-);
+store.firebaseAuthIsReady.then(() => { // no.2
+	ReactDOM.render(
+		<Provider store={store}>
+			<App />
+		</Provider>,
+		document.getElementById('root')
+	);
 
-serviceWorker.unregister();
+	serviceWorker.unregister();
+});
