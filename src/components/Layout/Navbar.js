@@ -21,7 +21,6 @@ const Navbar = () => {
 };
 
 const mapStateToProps = (state) =>{
-	console.log('dupa' ,state);
 	return ({
 
 	})
