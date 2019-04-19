@@ -2,10 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 const ProjectDetails = (props) => {
 	const id = props.match.params.id;
-	const { project } = props;
+	
+	const { project, auth} = props;
+
+	if (!auth.uid) return <Redirect to="/signin" />; //URL GUARDIAN
+	
 	if (project) {
 		return (
 			<div className="container section project-details">
@@ -34,7 +39,8 @@ const mapStateToProps = (state, myProps) => {
 	const projects = state.firestore.data.projects;
 	const project = projects ? projects[id] : null; // projects[id] will find individual project that id match to it and save in in projec.
 	return {
-		project
+		project,
+		auth: state.firebase.auth
 	};
 };
 
