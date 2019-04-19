@@ -21,7 +21,7 @@ class Dashboard extends Component {
 				</div>
 			</div>
 		);
-	} // 21
+	}
 }
 
 const mapStateToProps = (state) => {

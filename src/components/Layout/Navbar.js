@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
+import { connect } from 'react-redux';
 
-export const Navbar = () => {
+const Navbar = () => {
 	return (
 		<div className="Navbar">
 			<nav className="nav-wrapper grey darken-3">
@@ -18,3 +19,12 @@ export const Navbar = () => {
 		</div>
 	);
 };
+
+const mapStateToProps = (state) =>{
+	console.log('dupa' ,state);
+	return ({
+
+	})
+}
+
+export default connect(mapStateToProps)(Navbar);
