@@ -5,14 +5,17 @@ export const createProject = (payload) => {
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
 		// make async call to db
 		const firestore = getFirestore();
+		const profile = getState().firebase.profile;
+		const authorId = getState().firebase.auth.uid;
+
 		firestore
 			.collection('projects')
 			.add({
 				// this add colleciton to fire store
 				...payload,
-				authorFirstName: 'Patryk',
-				authorLastName: 'Wichrow',
-				authorID: 12345,
+				authorFirstName: profile.firstName,
+				authorLastName: profile.lastName,
+				authorID: authorId,
 				createdAt: new Date()
 			})
 			.then(() => {

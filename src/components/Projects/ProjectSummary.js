@@ -6,6 +6,7 @@ export default function ProjectSummary({project}) {
 			<div className="card-content grey-text text-darken-3">
 				<span className="card-title">
 					<p>{project.title}</p>
+					<p>Posted by {project.authorFirstName} {project.authorLastName}</p>
 					<p className="grey-text">{project.content}</p>
 				</span>
 			</div>
