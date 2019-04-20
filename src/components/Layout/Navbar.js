@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 const Navbar = (props) => {
 	const { auth } = props;
 
-	console.log(auth);
 	return (
 		<div className="Navbar">
 			<nav className="nav-wrapper grey darken-3">

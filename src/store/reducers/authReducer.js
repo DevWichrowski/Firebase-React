@@ -23,7 +23,21 @@ const authReducer = (state = initState, action) => {
         case AuthActions.SIGN_OUT_SUCCESS: {
             console.log('SIGNED OUT SUCCESS');
             return state;
-        }
+		}
+		case AuthActions.SIGN_UP_SUCCESS: {
+			console.log('sign up success');
+			return {
+				...state,
+				authError: null,
+			}
+		}
+		case AuthActions.SIGN_UP_ERROR:{
+			console.log('sign up error');
+			return {
+				...state,
+				authError: action.error.message // error we have from the props
+			}
+		}
 
         default:{
             return state;
