@@ -7,11 +7,11 @@ import moment from 'moment';
 
 const ProjectDetails = (props) => {
 	const id = props.match.params.id;
-	
-	const { project, auth} = props;
+
+	const { project, auth } = props;
 
 	if (!auth.uid) return <Redirect to="/signin" />; //URL GUARDIAN
-	
+
 	if (project) {
 		return (
 			<div className="container section project-details">
